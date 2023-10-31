@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function Validation()
+{
+    var firstName = document.forms.RegForm.FirstName.value;
+    var lastName = document.forms.RegForm.LastName.value;
+    var password = document.forms.RegForm.Password.value;
+    var email = document.forms.RegForm.EMail.value;
+    var phone = document.forms.RegForm.Telephone.value;
+    var address = document.forms.RegForm.Address.value;
+
+    var regEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    var regPhone = /^\d{10}$/;
+    var regName = /^[A-Za-z]{1,6}$/;
+    var regPassword = /^.{6,}$/;
+
+    if (firstName == "" || !regName.test(firstName)) {
+        alert("Please enter a valid First Name (1-6 characters, alphabets only).");
+        return false;
+    }
+
+    if (lastName == "" || !regName.test(lastName)) {
+        alert("Please enter a valid Last Name (1-6 characters, alphabets only).");
+        return false;
+    }
+
+    if (password == "" || !regPassword.test(password)) {
+        alert("Please enter a valid password (at least 6 characters).");
+        return false;
+    }
+
+    if (email == "" || !regEmail.test(email)) {
+        alert("Please enter a valid E-mail address.");
+        return false;
+    }
+
+    if (phone == "" || !regPhone.test(phone)) {
+        alert("Please enter a valid Mobile Number (10 digits only).");
+        return false;
+    }
+
+    if (address == "") {
+        alert("Please enter your address.");
+        return false;
+    }
+
+        // Display acknowledgment message
+    alert("Registration Successful! Thank you for submitting the form.");
+    return true;
+}
+</script>
+</head>
+<body>
+
+<h1 style="text-align: center;">REGISTRATION FORM</h1><hr><br>
+<form name="RegForm" onsubmit="return Validation()" method="post">
+
+<p>First Name: <input type="text" size="50" name="FirstName" /></p>
+<br />
+
+<p>Last Name: <input type="text" size="50" name="LastName" /></p>
+<br />
+
+<p>Password: <input type="password" size="50" name="Password" /></p>
+<br />
+
+<p>E-mail Address: <input type="text" size="50" name="EMail" /></p>
+<br />
+
+<p>Mobile Number: <input type="text" size="50" name="Telephone" /></p>
+<br />
+
+<p>Address: <input type="text" size="50" name="Address" /></p>
+<br />
+<!-- Rest of the form fields -->
+
+<p>SELECT YOUR COURSE
+<select type="text" value="" name="Subject">
+<option>BTECH</option>
+<option>BBA</option>
+<option>BCA</option>
+<option>B.COM</option>
+<option>GEEKFORGEEKS</option>
+</select>
+</p>
+<br />
+<br />
+
+<p>
+Comments: <textarea cols="55" name="Comment"> </textarea></p>
+<p>
+<input type="submit" value="Submit" name="Submit" />
+
+<input type="reset" value="Reset" name="Reset" />
+</p>
+</form>
+</body>
+</html>
